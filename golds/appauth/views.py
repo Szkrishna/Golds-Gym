@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from appauth.models import Contact
+
+
 # Create your views here.
-def Home(request):
+def home(request):
     return render(request,"index.html")
 
 def signup(request):
@@ -80,4 +82,7 @@ def contact(request):
         return redirect('/contact')
     
     return render(request,'contact.html')
+
+def enroll(request):
+    return render(request,'join.html')
 

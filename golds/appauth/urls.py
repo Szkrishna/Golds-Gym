@@ -2,11 +2,12 @@ from django.urls import path
 from appauth import views
 
 urlpatterns = [
-   path('',views.Home, name="Home"),
+   path('',views.home, name="home"),
    path('signup', views.signup, name="signup"),
    path('handlelogin', views.handlelogin, name="handlelogin"),
    path('logout', views.handleLogout, name="handleLogout"),
-   path('contact', views.contact, name="contact")
+   path('contact', views.contact, name="contact"),
+   path('join', views.enroll, name='join')
 
    
 ]
