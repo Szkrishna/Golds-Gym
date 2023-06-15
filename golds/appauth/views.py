@@ -9,7 +9,7 @@ def Home(request):
 
 def signup(request):
     if request.method=="POST":
-        username=request.POST.get('username')
+        username=request.POST.get('usernumber')
         email=request.POST.get('email')
         pass1=request.POST.get('pass1')
         pass2=request.POST.get('pass2')
@@ -37,25 +37,31 @@ def signup(request):
         myuser=User.objects.create_user(username,email,pass1)
         myuser.save()
         messages.success(request,"User is Created Please Login")
-        return redirect('/login')
+        return redirect('/handlelogin')
         
         
     return render(request,"signup.html")
 
-def login(request):
-    if request.method=="POST":
-        username=request.POST.get('username')
-        pass1=request.POST.get('pass1')
-        myuser=authenticate(username=username, pass1=pass1)
-        if myuser is not None:
-            login(request,myuser)
-            messages.sucess(request,'Login Sucessful')
-            return redirect('/')
-        else:
-            messages.error(request,'Invalid Credentials')
-    
-    return render(request,'login.html')
 
-def logout(request):
-    messages.success(request,'Logout Success')
+    def handlelogin(request):
+        if request.method=="POST":        
+            username=request.POST.get('usernumber')
+            pass1=request.POST.get('pass1')
+            myuser=authenticate(username=username,password=pass1)
+            if myuser is not None:
+                login(request,myuser)
+                messages.success(request,"Login Successful")
+                return redirect('/')
+            else:
+                messages.error(request,"Invalid Credentials")
+                return redirect('/login')
+            
+        
+    return render(request,"handlelogin.html")
+
+
+def handleLogout(request):
+    logout(request)
+    messages.success(request,"Logout Success")    
     return redirect('/login')
+
