@@ -22,7 +22,7 @@ Login
     {% endfor %}
     
     
-    <form action="/login" method="post">{% csrf_token %}
+    <form action="/handlelogin" method="post">{% csrf_token %}
 
       <div class="form-group">
         <input type="number" class="form-control mb-2" name="usernumber" placeholder="Phone Number" required>
