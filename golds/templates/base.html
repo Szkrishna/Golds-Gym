@@ -67,8 +67,13 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      {% if not request.user.is_authenticated %}
+      <li><a href="/handlelogin" class="get-started-btn scrollto">Signin</a></li>
 
-      <a href="#about" class="get-started-btn scrollto">Sign In</a>
+      {% else %}
+      <li><a href="/logout" class="get-started-btn scrollto">Logout</a></li>
+
+      {% endif %}
 
     </div>
   </header><!-- End Header -->
@@ -95,6 +100,14 @@
     
     
     {% endblock body %}
+  </main>
+
+  <footer id="footer">
+    {% block footer %}
+    
+    
+    
+    {% endblock footer %}
   </main>
 
   <div id="preloader"></div>

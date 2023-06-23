@@ -1,88 +1,74 @@
-{% extends 'base.html' %}
-{% block title %}
-Contact
-{% endblock title %}
+{% extends 'base.html' %} 
+{% block title %}  Services {% endblock title%}
 {% block head %}
-<h1>Gold's GYM</h1>
-<img src="static/assets/img/contact.png" alt="Example Image" width=1000, height=400>
+<h1>Our Services</h1>
+<h3 style="color: #fff; margin-top: 50px;">
+    Gold's Gym offers a wide range of services designed to cater to the diverse fitness needs and goals of its members. With a rich history dating back to 1965, Gold's Gym has become a global leader in the fitness industry, providing top-notch facilities and expert guidance to individuals seeking to improve their health and well-being</h3>
 {% endblock head %}
 
 {% block body %}    
-<!-- ======= Contact Section ======= -->
-<section id="contact" class="contact">
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <p>Contact Us</p>
+        {% comment %} <h2>Services</h2> {% endcomment %}
+        <p>Check our Services</p>
       </div>
 
-      <div>
-        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="row mt-5">
-
-        <div class="col-lg-4">
-          <div class="info">
-            <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>info@example.com</p>
-            </div>
-
-            <div class="phone">
-              <i class="bi bi-phone"></i>
-              <h4>Call:</h4>
-              <p>+1 5589 55488 55s</p>
-            </div>
-
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="">State-of-the-Art Equipment</a></h4>
+            <p>Gold's Gym boasts a comprehensive selection of cutting-edge fitness equipment, including cardio machines, strength training equipment, free weights, and functional training areas.</p>
           </div>
-
         </div>
 
-        <div class="col-lg-8 mt-5 mt-lg-0">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="">Personal Training</a></h4>
+            <p>Gold's Gym offers personalized training programs delivered by certified fitness professionals.</p>
+          </div>
+        </div>
 
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-                <strong></strong> {{message}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="">Group Exercise Classes</a></h4>
+            <p>The gym's group exercise classes are a popular choice for members looking for a dynamic and engaging fitness experience.</p>
+          </div>
+        </div>
 
-            <form action="/contact" method="post">{% csrf_token %}
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="error-message"></div>
-              
-            </div>
-            <button class="btn btn-warning" type="submit">Send Message</button>
-          </form>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4><a href="">Specialty Programs</a></h4>
+            <p>Gold's Gym offers specialized programs designed to target specific fitness goals or interests.</p>
+          </div>
+        </div>
 
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-slideshow"></i></div>
+            <h4><a href="">Online Workouts and Fitness Tracking</a></h4>
+            <p>Gold's Gym understands the importance of flexibility and convenience in today's busy world.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-arch"></i></div>
+            <h4><a href="">Personalized Nutrition Guidance</a></h4>
+            <p>Achieving fitness goals goes hand in hand with proper nutrition.</p>
+          </div>
         </div>
 
       </div>
 
     </div>
-  </section><!-- End Contact Section -->
+  </section><!-- End Services Section -->
 
   {% endblock body %}
 
