@@ -86,7 +86,7 @@ def contact(request):
 def enroll(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please Login and Try Again")
-        return redirect('/login')
+        return redirect('/handlelogin')
 
     Membership=MembershipPlan.objects.all()
     SelectTrainer=Trainer.objects.all()
@@ -110,4 +110,16 @@ def enroll(request):
 
 def services(request):
     return render(request,'services.html')
+
+def about(request):
+    return render(request,'about.html')
+
+def profile(request):
+    if not request.user.is_authenticated:
+        messages.warning(request,"Please Login and Try Again")
+        return redirect('/handlelogin')
+    user_name=request.user
+    posts=Enrollment.objects.filter(phonenumber=user_name)
+    context={"posts":posts}
+    return render(request,'profile.html',context)
 
