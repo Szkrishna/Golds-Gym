@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from appauth.models import Contact, MembershipPlan, Trainer, Enrollment, Gallery, Attendence
+from appauth.models import Contact, MembershipPlan, Trainer, Enrollment, Gallery, Attendance
 
 
 # Create your views here.
@@ -120,7 +120,8 @@ def profile(request):
         return redirect('/handlelogin')
     user_name=request.user
     posts=Enrollment.objects.filter(phonenumber=user_name)
-    context={"posts":posts}
+    attendence=Attendance.objects.filter(phonenumber=user_name)
+    context={"posts":posts,"attendence":attendence}
     return render(request,'profile.html',context)
 
 def gallery(request):
@@ -128,7 +129,7 @@ def gallery(request):
     context={"posts":posts}
     return render(request,'gallery.html',context)
 
-def attendence(request):
+def attendance(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please Login and Try Again")
         return redirect('/handlelogin')
@@ -140,9 +141,9 @@ def attendence(request):
         logout=request.POST.get('logouttime')
         selectworkout=request.POST.get('workout')
         trainedby=request.POST.get('trainer')
-        query=Attendence(phonenumber=phonenumber, login=login, logout=logout,selectworkout=selectworkout, trainedby=trainedby)
+        query=Attendance(phonenumber=phonenumber, login=login, logout=logout,selectworkout=selectworkout, trainedby=trainedby)
         query.save()
-        messages.success(request,"Attendence applied sucessfully")
-        return redirect('/attendence')
+        messages.success(request,"Attendance applied sucessfully")
+        return redirect('/attendance')
 
-    return render(request,'attendence.html',context)
+    return render(request,'attendance.html',context)

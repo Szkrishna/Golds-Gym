@@ -47,9 +47,9 @@ class Gallery(models.Model):
     def __int__(self):
         return self.id
     
-class Attendence(models.Model):
+class Attendance(models.Model):
     selectdate=models.DateTimeField(auto_now_add=True)
-    phonenumber=models.CharField(max_length=15,default="Something")
+    phonenumber=models.CharField(max_length=15)
     login=models.CharField(max_length=100)
     logout=models.CharField(max_length=100)
     selectworkout=models.CharField(max_length=100)

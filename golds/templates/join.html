@@ -3,208 +3,146 @@
 {% block head %}
 
 <div >
-  <h2 class="mb-3">Join The Best Gym In Bangalore</h2>
-  <div class="row">
-    <div class="col-md-3"></div>
-
-    <div class="col-md-6">
-      {% for message in messages %}
-      <div
-        class="alert alert-{{message.tags}} alert-dismissible fade show"
-        role="alert"
-      >
-        <strong></strong> {{message}}
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
-      {% endfor %} {% comment %} Contact Us COde {% endcomment %}
-
-      <form action="/join" method="post">{% csrf_token %}
-  
-
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            name="FullName"
-            placeholder="Enter Your Full Name"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <input
-            type="email"
-            class="form-control mt-2"
-            value="{{user.email}}"
-            name="email"
-            placeholder="Enter Your Email"
-            readonly
-            required
-          />
-        </div>
-
-        <div class="form-group">
-
-          <select class="form-control mt-2" id="gender" name="gender" required>
-            <option selected>Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Others</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <input
-            type="number"
-            class="form-control mt-2"
-            value="{{user.username}}"
-            name="PhoneNumber"
-            placeholder="Enter Your Number"
-            readonly
-          />
-        </div>
-
-        <div class="form-group">
-          <input
-            type="date"
-            class="form-control mt-2"
-            name="DOB"
-            placeholder="Date Of Birth"
-            required
-          />
-        </div>
-
-
-        <div class="form-group">
-            <select  class="form-control mt-2" id="member" name="member"  required>
-                <option selected>Select Membership Plan</option>
-                {% for  p in Membership %}
-                <option value="{{p.plan}} - {{p.price}}">{{p.plan}} - {{p.price}} Rs</option>
-                {% endfor %}
-            </select>
-        </div>
-
-
-        <div class="form-group">
-            <select  class="form-control mt-2" id="trainer" name="trainer"  required>
-                <option selected> Select Trainer </option>
-                {% for  p in SelectTrainer %}
-                <option value="{{p.name}}">{{p.name}}</option>
-                {% endfor %}
-            </select>        
-        </div>
-
-            <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control mt-2"
-                  name="reference"
-                  placeholder="Refered By"
-                  
-                />
-              </div>
-
-            <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control mt-2"
-                  name="address"
-                  placeholder="Address"
-                  
-                />
-              </div>
-
-        <br/>
-        <div class="d-grid gap-2">
-          <button class="btn btn-warning" type="submit">Enroll</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="col-md-3"></div>
-  </div>
+  <h1>Join Us</h1>
+  <h2 class="mb-3">"Power up your fitness journey and join our dynamic community for a stronger, healthier you!"</h2>
 </div>
 
 {% endblock head %}
 
-{% block footer%}
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+{% block body %}
 
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>Gp<span>.</span></h3>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+<div class="row">
+  <section class="d-flex align-items-center justify-content-center">
+  <div class="container" data-aos="fade-up">
+
+  <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+  <h4 class="mb-4"><center>Please enter your enrollement details here</center></h4>
+  <div class="col-md-3"></div>
+
+  <div class="col-md-4">
+    {% for message in messages %}
+    <div
+      class="alert alert-{{message.tags}} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong></strong> {{message}}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} 
+
+    <form action="/join" method="post">{% csrf_token %}
+
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="FullName"
+          placeholder="Enter Your Full Name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control mt-2"
+          value="{{user.email}}"
+          name="email"
+          placeholder="Enter Your Email"
+          readonly
+          required
+        />
+      </div>
+
+      <div class="form-group">
+
+        <select class="form-control mt-2" id="gender" name="gender" required>
+          <option selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Others</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control mt-2"
+          value="{{user.username}}"
+          name="PhoneNumber"
+          placeholder="Enter Your Number"
+          readonly
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="date"
+          class="form-control mt-2"
+          name="DOB"
+          placeholder="Date Of Birth"
+          required
+        />
+      </div>
+
+
+      <div class="form-group">
+          <select  class="form-control mt-2" id="member" name="member"  required>
+              <option selected>Select Membership Plan</option>
+              {% for  p in Membership %}
+              <option value="{{p.plan}} - {{p.price}}">{{p.plan}} - {{p.price}} Rs</option>
+              {% endfor %}
+          </select>
+      </div>
+
+
+      <div class="form-group">
+          <select  class="form-control mt-2" id="trainer" name="trainer"  required>
+              <option selected> Select Trainer </option>
+              {% for  p in SelectTrainer %}
+              <option value="{{p.name}}">{{p.name}}</option>
+              {% endfor %}
+          </select>        
+      </div>
+
+          <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="reference"
+                placeholder="Refered By"
+                
+              />
             </div>
-          </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
+          <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="address"
+                placeholder="Address"
+                
+              />
+            </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
-        </div>
+      <br/>
+      <div class="d-grid gap-2">
+        <button class="btn btn-warning" type="submit">Enroll</button>
       </div>
-    </div>
+    </form>
+  </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  <div class="col-md-3"></div>
+</div>
+</div>
+</div>
 
- {% endblock footer%}
+</div>
+</section>
+{% endblock body %}
