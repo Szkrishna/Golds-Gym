@@ -1,92 +1,41 @@
 {% extends 'base.html' %}
 {% block title %}
-Contact
+Gallery
 {% endblock title %}
 {% block head %}
-<h1>Gold's GYM Contact Page</h1>
-<img src="static/assets/img/contact.png" alt="Example Image" width=1000, height=400>
+
+<centre><h1 class="mb-4">Gallery</h1></centre>
+<h2 style="color: #ffbb38" class="mb-3">Welcome to the Gold's Gym Fitness Webpage Gallery, a digital showcase of strength, passion, and transformation. Step into our virtual realm, where you'll discover a collection of images that encapsulate the essence of our renowned fitness empire.</h2>
+<h2 style="color: #ffbb38" class="mb-3">As you navigate through the Gold's Gym Fitness webpage gallery, you'll be greeted by a series of captivating visuals that depict the diverse and dynamic world of fitness. Each photograph captures the determination etched on the faces of individuals as they strive for greatness, embodying the unwavering spirit that defines our community.</h2>
+<h2 style="color: #ffbb38" class="mb-3">Our gallery showcases the modern and inviting environment of Gold's Gym locations. You'll find a stunning display of cutting-edge fitness equipment that stands as a testament to our commitment to providing the best resources for achieving your goals. From state-of-the-art cardio machines to an array of strength training equipment, every corner of our gyms is designed to empower you to unleash your full potential.</h2>
+
+
 {% endblock head %}
 
-{% block body %}    
-<!-- ======= Contact Section ======= -->
-<section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <p>Contact Us</p>
-      </div>
-
-      <div>
-        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="row mt-5">
-
-        <div class="col-lg-4">
-          <div class="info">
-            <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>info@example.com</p>
-            </div>
-
-            <div class="phone">
-              <i class="bi bi-phone"></i>
-              <h4>Call:</h4>
-              <p>+1 5589 55488 55s</p>
-            </div>
-
+{% block body %}
+<div style="background: #f0f0f0">
+<div class="container mt-2">
+    <div class="row">
+  
+      {% for post in posts %}
+      <div class="col-md-4">
+        <div class="card mt-5  mb-5">
+          <img src="{{post.img.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">Uploaded On - {{post.timestamp}}</p>
           </div>
-
         </div>
-
-        <div class="col-lg-8 mt-5 mt-lg-0">
-
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-                <strong></strong> {{message}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-
-            <form action="/contact" method="post">{% csrf_token %}
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="error-message"></div>
-              
-            </div>
-            <button class="btn btn-warning" type="submit">Send Message</button>
-          </form>
-
-        </div>
-
       </div>
-
+      {% endfor %}
+  
     </div>
-  </section><!-- End Contact Section -->
+  </div>
+</div>
 
-  {% endblock body %}
+{% endblock body%}
 
-  {% block footer%}
+{% block footer%}
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">

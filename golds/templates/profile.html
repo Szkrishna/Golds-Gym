@@ -10,24 +10,25 @@ Profile
     
     <div class="col-md-4">
       
-    <h1>Enrollment Details</h1>
+    {% comment %} <h2>Enrollment Details</h2> {% endcomment %}
     {% comment %} Contact Us Code  {% endcomment %}
     {% for post in posts %}
-    <ul class="list-group">
-        <li class="list-group-item bg-warning text-dark"><h5>Name : {{post.FullName}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Email : {{post.Email}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Gender : {{post.Gender}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>PhoneNumber : {{post.PhoneNumber}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>DOB : {{post.DOB}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Membership plan : {{post.SelectMembershipplan}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Trainer : {{post.SelectTrainer}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Reference : {{post.Reference}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Address : {{post.Address}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Payment Status : {{post.paymentStatus}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Amount Paid : {{post.Price}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Upcoming Due Date : {{post.DueDate}}</h5></li>
-        <li class="list-group-item bg-warning text-dark"><h5>Joining date : {{post.timeStamp}}</h5></li>
-    </ul>
+   
+      <ul class="list-group">
+        <li class="list-group-item text-dark"><h5>Name : {{post.fullname}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Email : {{post.email}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Gender : {{post.gender}}</h5></li>
+        <li class="list-group-item text-dark"><h5>PhoneNumber : {{post.phonenumber}}</h5></li>
+        <li class="list-group-item text-dark"><h5>DOB : {{post.DOB}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Membership plan : {{post.selectmembershipplan}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Trainer : {{post.selecttrainer}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Reference : {{post.Reference}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Address : {{post.address}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Payment Status : {{post.paymentStatus}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Amount Paid : {{post.price}}</h5></li>
+        <li class="list-group-item text-dark"><h5>Next Due Date : {{post.duedate}}</h5></li>
+      </ul>
+
     {% endfor %}
     
     </div>
@@ -35,7 +36,7 @@ Profile
     <div class="col-md-8">
 
 
-      <div><Center><h2 class="display-4 mt-3"><b>Attendance Data</b></h2></Center></div>
+      <div><Center><h2 class="display-4 mt-3"><b>Attendance Data</b></h2></Center></div><br>
 
   
       
