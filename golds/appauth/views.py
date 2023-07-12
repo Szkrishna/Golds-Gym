@@ -120,8 +120,8 @@ def profile(request):
         return redirect('/handlelogin')
     user_name=request.user
     posts=Enrollment.objects.filter(phonenumber=user_name)
-    attendence=Attendance.objects.filter(phonenumber=user_name)
-    context={"posts":posts,"attendence":attendence}
+    attendance=Attendance.objects.filter(phonenumber=user_name)
+    context={"posts":posts,"attendance":attendance}
     return render(request,'profile.html',context)
 
 def gallery(request):
